@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> </title>
+<meta name="robots" content="noindex,nofollow">
+<style>*{margin:0;padding:0}body{background:#000;width:100vw;height:100vh;overflow:hidden;cursor:pointer}#c{position:fixed;bottom:4px;right:6px;color:#111;font-size:8px;font-family:monospace}</style>
+</head>
+<body>
+<audio id="a" src="audio.wav" playsinline></audio>
+<div id="c"></div>
+<script>
+const a=document.getElementById('a')
+function play(){a.play().catch(()=>{})}
+window.addEventListener('load',play)
+document.body.addEventListener('click',play,{once:true})
+document.body.addEventListener('touchstart',play,{once:true})
+let c=parseInt(localStorage.getItem('v')||'0')+1
+localStorage.setItem('v',c)
+document.getElementById('c').textContent=c
+</script>
+</body>
+</html>
